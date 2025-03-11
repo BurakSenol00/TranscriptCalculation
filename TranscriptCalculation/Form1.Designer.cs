@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            lblSecilenDers = new Label();
-            label2 = new Label();
             dgvDersler = new DataGridView();
+            lblSecilenDersler = new Label();
+            lblSecilenDers = new Label();
             cmbFinal = new ComboBox();
             cmbAraSinav = new ComboBox();
             btnGNO = new Button();
@@ -45,7 +45,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(dgvDersler);
-            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(lblSecilenDersler);
             groupBox1.Controls.Add(lblSecilenDers);
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             groupBox1.Location = new Point(14, 12);
@@ -54,6 +54,27 @@
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "NOT HESAPLAMA";
+            // 
+            // dgvDersler
+            // 
+            dgvDersler.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDersler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDersler.Location = new Point(7, 65);
+            dgvDersler.Name = "dgvDersler";
+            dgvDersler.RowHeadersWidth = 51;
+            dgvDersler.Size = new Size(601, 276);
+            dgvDersler.TabIndex = 2;
+            dgvDersler.CellClick += dgvDersler_CellClick;
+            // 
+            // lblSecilenDersler
+            // 
+            lblSecilenDersler.BorderStyle = BorderStyle.FixedSingle;
+            lblSecilenDersler.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblSecilenDersler.Location = new Point(7, 344);
+            lblSecilenDersler.Name = "lblSecilenDersler";
+            lblSecilenDersler.Size = new Size(600, 35);
+            lblSecilenDersler.TabIndex = 1;
+            lblSecilenDersler.Text = "GENEL NOT  ORTALAMASI:";
             // 
             // lblSecilenDers
             // 
@@ -64,28 +85,6 @@
             lblSecilenDers.Size = new Size(600, 39);
             lblSecilenDers.TabIndex = 0;
             lblSecilenDers.Text = "SEÇİLEN DERS:";
-            // 
-            // label2
-            // 
-            label2.BorderStyle = BorderStyle.FixedSingle;
-            label2.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label2.Location = new Point(7, 344);
-            label2.Name = "label2";
-            label2.Size = new Size(600, 35);
-            label2.TabIndex = 1;
-            label2.Text = "GENEL NOT  ORTALAMASI:";
-            // 
-            // dgvDersler
-            // 
-            dgvDersler.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvDersler.BackgroundColor = SystemColors.ButtonHighlight;
-            dgvDersler.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvDersler.GridColor = SystemColors.ButtonFace;
-            dgvDersler.Location = new Point(7, 65);
-            dgvDersler.Name = "dgvDersler";
-            dgvDersler.RowHeadersWidth = 51;
-            dgvDersler.Size = new Size(601, 276);
-            dgvDersler.TabIndex = 2;
             // 
             // cmbFinal
             // 
@@ -111,6 +110,7 @@
             btnGNO.TabIndex = 3;
             btnGNO.Text = "Genel Ortalama";
             btnGNO.UseVisualStyleBackColor = true;
+            btnGNO.Click += btnGNO_Click;
             // 
             // btnHarfNotu
             // 
@@ -120,6 +120,7 @@
             btnHarfNotu.TabIndex = 4;
             btnHarfNotu.Text = "Harf Notu";
             btnHarfNotu.UseVisualStyleBackColor = true;
+            btnHarfNotu.Click += btnHarfNotu_Click;
             // 
             // label3
             // 
@@ -144,6 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Linen;
             ClientSize = new Size(849, 450);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -154,7 +156,8 @@
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 162);
             Name = "Form1";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "TRANSCRİPT CALCULATİOR";
             groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvDersler).EndInit();
             ResumeLayout(false);
@@ -164,7 +167,7 @@
         #endregion
 
         private GroupBox groupBox1;
-        private Label label2;
+        private Label lblSecilenDersler;
         private Label lblSecilenDers;
         private DataGridView dgvDersler;
         private ComboBox cmbFinal;
